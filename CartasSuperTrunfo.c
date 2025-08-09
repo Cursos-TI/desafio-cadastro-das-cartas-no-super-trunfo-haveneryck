@@ -30,68 +30,39 @@ int comparar(float valor1, float valor2, int menorVence) {
 }
 
 int main() {
-    // Carta 1
-    char estado1;
-    char codigo1[4];
-    char nomeCidade1[50];
-    int populacao1;
-    float area1;
-    float pib1;
-    int pontosTuristicos1;
-    // Adição do nível Aventureiro: novos atributos calculados
-    float densidade1;       // População / Área
-    float pibPerCapita1;    // PIB / População
+    // Declaração das variáveis das duas cartas
+    unsigned long int populacao1, populacao2; // Alterado para unsigned long int conforme instrução
+    float area1, area2, pib1, pib2, idh1, idh2, expectativaVida1, expectativaVida2;
 
-     // Carta 2
-    char estado2;
-    char codigo2[4];
-    char nomeCidade2[50];
-    int populacao2;
-    float area2;
-    float pib2;
-    int pontosTuristicos2;
-    // Adição do nível Aventureiro: novos atributos calculados
-    float densidade2;
-    float pibPerCapita2;
-
-    // Entrada de dados da Carta 1
-    printf("Cadastro da Carta 1:\n");
-    printf("Estado (A a H): ");
-    scanf(" %c", &estado1);
-    printf("Código da Carta (ex: A01): ");
-    scanf("%s", codigo1);
-    printf("Nome da Cidade: ");
-    scanf(" %[^\n]", nomeCidade1);
-    printf("População: ");
-    scanf("%d", &populacao1);
-    printf("Área (em km²): ");
+    // Entrada dos dados da Carta 1
+    printf("Digite os dados da Carta 1:\n");
+    printf("Populacao: ");
+    scanf("%lu", &populacao1);
+    printf("Area: ");
     scanf("%f", &area1);
-    printf("PIB (em bilhões de reais): ");
+    printf("PIB (em bilhões): ");
     scanf("%f", &pib1);
-    printf("Número de Pontos Turísticos: ");
-    scanf("%d", &pontosTuristicos1);
-    
-    // Adição do nível Aventureiro: cálculo automático dos novos atributos
-    densidade1 = populacao1 / area1;
-    pibPerCapita1 = pib1 * 1000000000 / populacao1; // PIB convertido para reais
+    printf("IDH: ");
+    scanf("%f", &idh1);
+    printf("Expectativa de Vida: ");
+    scanf("%f", &expectativaVida1);
 
-    // Entrada de dados da Carta 2
-    printf("\nCadastro da Carta 2:\n");
-    printf("Estado (A a H): ");
-    scanf(" %c", &estado2);
-    printf("Código da Carta (ex: B02): ");
-    scanf("%s", codigo2);
-    printf("Nome da Cidade: ");
-    scanf(" %[^\n]", nomeCidade2);
-    printf("População: ");
-    scanf("%d", &populacao2);
-    printf("Área (em km²): ");
+    // Entrada dos dados da Carta 2
+    printf("\nDigite os dados da Carta 2:\n");
+    printf("Populacao: ");
+    scanf("%lu", &populacao2);
+    printf("Area: ");
     scanf("%f", &area2);
-    printf("PIB (em bilhões de reais): ");
+    printf("PIB (em bilhões): ");
     scanf("%f", &pib2);
-    printf("Número de Pontos Turísticos: ");
-    scanf("%d", &pontosTuristicos2);
+    printf("IDH: ");
+    scanf("%f", &idh2);
+    printf("Expectativa de Vida: ");
+    scanf("%f", &expectativaVida2);
+    
 
+
+    
     // Adição do nível Aventureiro: cálculo automático dos novos atributos
     densidade2 = populacao2 / area2;
     pibPerCapita2 = pib2 * 1000000000 / populacao2;
