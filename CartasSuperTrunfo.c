@@ -9,6 +9,9 @@ int main() {
     float area1;
     float pib1;
     int pontosTuristicos1;
+    // Adição do nível Aventureiro: novos atributos calculados
+    float densidade1;       // População / Área
+    float pibPerCapita1;    // PIB / População
 
      // Carta 2
     char estado2;
@@ -18,6 +21,9 @@ int main() {
     float area2;
     float pib2;
     int pontosTuristicos2;
+    // Adição do nível Aventureiro: novos atributos calculados
+    float densidade2;
+    float pibPerCapita2;
 
     // Entrada de dados da Carta 1
     printf("Cadastro da Carta 1:\n");
