@@ -1,5 +1,34 @@
 #include <stdio.h>
 
+// Função para calcular a densidade populacional
+float calcularDensidade(unsigned long int populacao, float area) {
+    return populacao / area;
+}
+
+// Função para calcular o PIB per capita
+float calcularPIBPerCapita(float pib, unsigned long int populacao) {
+    return (pib * 1000000000) / populacao; // Convertendo PIB de bilhões para reais
+}
+
+// Função para calcular o IDH ajustado
+float calcularIDHAjustado(float idh, float expectativaVida) {
+    return idh * expectativaVida;
+}
+
+// Função para calcular o Super Poder
+float calcularSuperPoder(float pibPerCapita, float densidade, float idhAjustado) {
+    return pibPerCapita + (1 / densidade) + idhAjustado; // Soma dos atributos com densidade invertida
+}
+
+// Função para comparar dois valores e retornar o vencedor
+int comparar(float valor1, float valor2, int menorVence) {
+    if (menorVence) {
+        return valor1 < valor2 ? 1 : 0; // Vence quem tem menor valor
+    } else {
+        return valor1 > valor2 ? 1 : 0; // Vence quem tem maior valor
+    }
+}
+
 int main() {
     // Carta 1
     char estado1;
