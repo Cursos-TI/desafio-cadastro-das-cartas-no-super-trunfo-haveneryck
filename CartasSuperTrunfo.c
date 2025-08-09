@@ -76,6 +76,9 @@ int main() {
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões de reais\n", pib1);
     printf("Número de Pontos Turísticos: %d\n", pontosTuristicos1);
+    // Adição do nível Aventureiro: exibição dos novos atributos
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade1);
+    printf("PIB per Capita: R$ %.2f\n", pibPerCapita1);
 
     // Exibição da Carta 2
     printf("\nCarta 2:\n");
@@ -86,6 +89,9 @@ int main() {
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", pontosTuristicos2);
+    // Adição do nível Aventureiro: exibição dos novos atributos
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
+    printf("PIB per Capita: R$ %.2f\n", pibPerCapita2);
 
     return 0;
 }
