@@ -41,6 +41,10 @@ int main() {
     scanf("%f", &pib1);
     printf("Número de Pontos Turísticos: ");
     scanf("%d", &pontosTuristicos1);
+    
+    // Adição do nível Aventureiro: cálculo automático dos novos atributos
+    densidade1 = populacao1 / area1;
+    pibPerCapita1 = pib1 * 1000000000 / populacao1; // PIB convertido para reais
 
     // Entrada de dados da Carta 2
     printf("\nCadastro da Carta 2:\n");
@@ -58,6 +62,10 @@ int main() {
     scanf("%f", &pib2);
     printf("Número de Pontos Turísticos: ");
     scanf("%d", &pontosTuristicos2);
+
+    // Adição do nível Aventureiro: cálculo automático dos novos atributos
+    densidade2 = populacao2 / area2;
+    pibPerCapita2 = pib2 * 1000000000 / populacao2;
 
     // Exibição da Carta 1
     printf("\nCarta 1:\n");
