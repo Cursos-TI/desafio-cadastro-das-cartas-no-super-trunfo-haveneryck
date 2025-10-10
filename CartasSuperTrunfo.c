@@ -1,94 +1,102 @@
 #include <stdio.h>
 
-// Função para calcular a densidade populacional
-float calcularDensidade(unsigned long int populacao, float area) {
-    return populacao / area;
-}
-
-// Função para calcular o PIB per capita
-float calcularPIBPerCapita(float pib, unsigned long int populacao) {
-    return (pib * 1000000000) / populacao; // Convertendo PIB de bilhões para reais
-}
-
-// Função para calcular o IDH ajustado
-float calcularIDHAjustado(float idh, float expectativaVida) {
-    return idh * expectativaVida;
-}
-
-// Função para calcular o Super Poder
-float calcularSuperPoder(float pibPerCapita, float densidade, float idhAjustado) {
-    return pibPerCapita + (1 / densidade) + idhAjustado; // Soma dos atributos com densidade invertida
-}
-
-// Função para comparar dois valores e retornar o vencedor
-int comparar(float valor1, float valor2, int menorVence) {
-    if (menorVence) {
-        return valor1 < valor2 ? 1 : 0; // Vence quem tem menor valor
-    } else {
-        return valor1 > valor2 ? 1 : 0; // Vence quem tem maior valor
-    }
-}
-
 int main() {
-    // Declaração das variáveis das duas cartas
-    unsigned long int populacao1, populacao2; // Alterado para unsigned long int conforme instrução
-    float area1, area2, pib1, pib2, idh1, idh2, expectativaVida1, expectativaVida2;
+    // Carta 1
+    char estado1;
+    char codigo1[4];
+    char nomeCidade1[50];
+    unsigned long int populacao1;
+    float area1, pib1;
+    int pontosTuristicos1;
+    float densidade1, pibPerCapita1, idh1, expectativaVida1;
 
-    // Entrada dos dados da Carta 1
-    printf("Digite os dados da Carta 1:\n");
-    printf("Populacao: ");
+    // Carta 2
+    char estado2;
+    char codigo2[4];
+    char nomeCidade2[50];
+    unsigned long int populacao2;
+    float area2, pib2;
+    int pontosTuristicos2;
+    float densidade2, pibPerCapita2, idh2, expectativaVida2;
+
+    // Entrada de dados da Carta 1
+    printf("Cadastro da Carta 1:\n");
+    printf("Estado (A a H): ");
+    scanf(" %c", &estado1);
+    printf("Código da Carta (ex: A01): ");
+    scanf("%s", codigo1);
+    printf("Nome da Cidade: ");
+    scanf(" %[^\n]", nomeCidade1);
+    printf("População: ");
     scanf("%lu", &populacao1);
-    printf("Area: ");
+    printf("Área (em km²): ");
     scanf("%f", &area1);
-    printf("PIB (em bilhões): ");
+    printf("PIB (em bilhões de reais): ");
     scanf("%f", &pib1);
+    printf("Número de Pontos Turísticos: ");
+    scanf("%d", &pontosTuristicos1);
     printf("IDH: ");
     scanf("%f", &idh1);
     printf("Expectativa de Vida: ");
     scanf("%f", &expectativaVida1);
 
-    // Entrada dos dados da Carta 2
-    printf("\nDigite os dados da Carta 2:\n");
-    printf("Populacao: ");
+    // Cálculos automáticos
+    densidade1 = (float) populacao1 / area1;
+    pibPerCapita1 = (pib1 * 1000000000) / populacao1;
+
+    // Entrada de dados da Carta 2
+    printf("\nCadastro da Carta 2:\n");
+    printf("Estado (A a H): ");
+    scanf(" %c", &estado2);
+    printf("Código da Carta (ex: B02): ");
+    scanf("%s", codigo2);
+    printf("Nome da Cidade: ");
+    scanf(" %[^\n]", nomeCidade2);
+    printf("População: ");
     scanf("%lu", &populacao2);
-    printf("Area: ");
+    printf("Área (em km²): ");
     scanf("%f", &area2);
-    printf("PIB (em bilhões): ");
+    printf("PIB (em bilhões de reais): ");
     scanf("%f", &pib2);
+    printf("Número de Pontos Turísticos: ");
+    scanf("%d", &pontosTuristicos2);
     printf("IDH: ");
     scanf("%f", &idh2);
     printf("Expectativa de Vida: ");
     scanf("%f", &expectativaVida2);
-    
-// Cálculo dos atributos derivados
-    float densidade1 = calcularDensidade(populacao1, area1); // Cálculo da densidade populacional da Carta 1
-    float densidade2 = calcularDensidade(populacao2, area2); // Cálculo da densidade populacional da Carta 2
 
-    float pibPerCapita1 = calcularPIBPerCapita(pib1, populacao1); // Cálculo do PIB per capita da Carta 1
-    float pibPerCapita2 = calcularPIBPerCapita(pib2, populacao2); // Cálculo do PIB per capita da Carta 2
+    // Cálculos automáticos
+    densidade2 = (float) populacao2 / area2;
+    pibPerCapita2 = (pib2 * 1000000000) / populacao2;
 
-    float idhAjustado1 = calcularIDHAjustado(idh1, expectativaVida1); // Cálculo do IDH ajustado da Carta 1
-    float idhAjustado2 = calcularIDHAjustado(idh2, expectativaVida2); // Cálculo do IDH ajustado da Carta 2
+    // Exibição da Carta 1
+    printf("\nCarta 1:\n");
+    printf("Estado: %c\n", estado1);
+    printf("Código: %s\n", codigo1);
+    printf("Nome da Cidade: %s\n", nomeCidade1);
+    printf("População: %lu\n", populacao1);
+    printf("Área: %.2f km²\n", area1);
+    printf("PIB: %.2f bilhões de reais\n", pib1);
+    printf("Pontos Turísticos: %d\n", pontosTuristicos1);
+    printf("IDH: %.3f\n", idh1);
+    printf("Expectativa de Vida: %.1f anos\n", expectativaVida1);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade1);
+    printf("PIB per Capita: R$ %.2f\n", pibPerCapita1);
 
-    float superPoder1 = calcularSuperPoder(pibPerCapita1, densidade1, idhAjustado1); // Cálculo do Super Poder da Carta 1
-    float superPoder2 = calcularSuperPoder(pibPerCapita2, densidade2, idhAjustado2); // Cálculo do Super Poder da Carta 2
-
-    // Comparações entre os atributos
-    printf("\nComparação entre as cartas:\n");
-
-    printf("Populacao: Carta %d venceu\n", comparar(populacao1, populacao2, 0) + 1); // Maior valor vence
-    printf("Area: Carta %d venceu\n", comparar(area1, area2, 0) + 1); // Maior valor vence
-    printf("PIB: Carta %d venceu\n", comparar(pib1, pib2, 0) + 1); // Maior valor vence
-    printf("IDH: Carta %d venceu\n", comparar(idh1, idh2, 0) + 1); // Maior valor vence
-    printf("Expectativa de Vida: Carta %d venceu\n", comparar(expectativaVida1, expectativaVida2, 0) + 1); // Maior valor vence
-    printf("Densidade Populacional: Carta %d venceu\n", comparar(densidade1, densidade2, 1) + 1); // Menor valor vence
-    printf("PIB per Capita: Carta %d venceu\n", comparar(pibPerCapita1, pibPerCapita2, 0) + 1); // Maior valor vence
-    printf("IDH Ajustado: Carta %d venceu\n", comparar(idhAjustado1, idhAjustado2, 0) + 1); // Maior valor vence
-    printf("Super Poder: Carta %d venceu\n", comparar(superPoder1, superPoder2, 0) + 1); // Maior valor vence
-
-    // Exibição dos Super Poderes
-    printf("\nSuper Poder Carta 1: %.2f\n", superPoder1);
-    printf("Super Poder Carta 2: %.2f\n", superPoder2);
+    // Exibição da Carta 2
+    printf("\nCarta 2:\n");
+    printf("Estado: %c\n", estado2);
+    printf("Código: %s\n", codigo2);
+    printf("Nome da Cidade: %s\n", nomeCidade2);
+    printf("População: %lu\n", populacao2);
+    printf("Área: %.2f km²\n", area2);
+    printf("PIB: %.2f bilhões de reais\n", pib2);
+    printf("Pontos Turísticos: %d\n", pontosTuristicos2);
+    printf("IDH: %.3f\n", idh2);
+    printf("Expectativa de Vida: %.1f anos\n", expectativaVida2);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
+    printf("PIB per Capita: R$ %.2f\n", pibPerCapita2);
 
     return 0;
 }
+
